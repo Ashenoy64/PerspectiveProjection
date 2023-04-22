@@ -69,6 +69,25 @@ class GraphicGeneration:
             [0, 0, -1, 0]
         ])
 
+    def reset(self):
+        self.screen = pygame.display.set_mode((self.WIDTH, self.HEIGHT))
+        self.scale_x = 100
+        self.scale_y = 100
+        self.scale_z = 100
+
+        self.camera_angle_x=0
+        self.camera_angle_y=0
+        self.camera_angle_z=0
+
+        self.move_x=0
+        self.move_y=0
+        self.move_z=0
+
+        self.objects=[]
+        self.createObjects()
+        self.animation=False
+        self.perspectiveProjection=False
+
     def createObjects(self):
         if len(self.objects)==0:
             self.objects.append([
@@ -308,7 +327,8 @@ class GraphicGeneration:
                     elif event.key == pygame.K_o:
                         self.scale_x -= 1
 
-
+                    elif event.key ==pygame.K_r:
+                        self.reset()
                     # Backslash toggling between projection and perspective
 
                     elif event.key == pygame.K_KP_DIVIDE:
