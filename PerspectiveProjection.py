@@ -71,10 +71,15 @@ class GraphicGeneration:
 
     def reset(self):
         self.screen = pygame.display.set_mode((self.WIDTH, self.HEIGHT))
+        
         self.scale_x = 100
         self.scale_y = 100
         self.scale_z = 100
 
+        self.anglex = 0
+        self.angley = 0
+        self.anglez = 0
+        
         self.camera_angle_x=0
         self.camera_angle_y=0
         self.camera_angle_z=0
@@ -91,25 +96,25 @@ class GraphicGeneration:
     def createObjects(self):
         if len(self.objects)==0:
             self.objects.append([
-            np.array([0, -1, -1]),
-            np.array([1, -1, -1]),
-            np.array([1,  1, -1]),
-            np.array([0, 1, -1]),
             np.array([0, -1, -2]),
             np.array([1, -1, -2]),
-            np.array([1, 1, -2]),
-            np.array([0, 1, -2])])
+            np.array([1,  1, -2]),
+            np.array([0, 1, -2]),
+            np.array([0, -1, -3]),
+            np.array([1, -1, -3]),
+            np.array([1, 1, -3]),
+            np.array([0, 1, -3])])
 
         elif len(self.objects)==1:
             self.objects.append([
-            np.array([-2, -1, -3]),
-            np.array([-1, -1, -3]),
-            np.array([-1, 1, -3]),
-            np.array([-2, 1, -3]),
             np.array([-2, -1, -4]),
             np.array([-1, -1, -4]),
             np.array([-1, 1, -4]),
-            np.array([-2, 1, -4])])
+            np.array([-2, 1, -4]),
+            np.array([-2, -1, -5]),
+            np.array([-1, -1, -5]),
+            np.array([-1, 1, -5]),
+            np.array([-2, 1, -5])])
         else:
             print("Maximum Objects Limit Reached")
 
